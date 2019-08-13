@@ -1,10 +1,12 @@
 import React from 'react';
-import Search from './Search';
+import Test from './Test';
+import User from './User';
 
 function App() {
   return (
     <div className="App">
-      <Search/>
+      <User />
+      <Test />
     </div>
   );
 }
