@@ -10,6 +10,7 @@ class User extends Component {
     this.state = {
       // set the name of the user in _handleInput
       name: "",
+      is_admin: false
     };
 
     this._handleSubmit = this._handleSubmit.bind(this);
@@ -19,7 +20,7 @@ class User extends Component {
   // when the form is submitted, make a post request to the backend to create a user.
   _handleSubmit (event) {
     event.preventDefault();
-    axios.post(SERVER_URL, { name: this.state.name }).then((result) => {
+    axios.post(SERVER_URL, { name: this.state.name, is_admin: this.state.is_admin }).then((result) => {
       // clear the form
       // TODO: handle the user in rails. How does this state persist?
       console.log(result);
