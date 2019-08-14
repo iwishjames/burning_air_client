@@ -1,11 +1,20 @@
 import React from 'react';
-import Airplanes from './Airplanes';
 
+import Home from './Home';
+import Search from './Search';
+// import Test from './Test';
+import User from './User';
+import BookFlight from './BookFlight';
+
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <Airplanes />
+      <Home />
+      <User />
+      <Search />
+      {/* <Test /> */}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 // use this URL to query using axios below
 const SERVER_URL = 'http://localhost:3000/users.json';
 
