@@ -113,5 +113,9 @@ class SearchResult extends Component {
         );
     }
 }
+<<<<<<< HEAD
+export default Search;
+=======
 
 export default Search;
+>>>>>>> 5c0f667857726913e3061f1d12986c6185b8ac14
