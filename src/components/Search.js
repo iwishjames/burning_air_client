@@ -24,14 +24,17 @@ class Search extends Component {
             };
             this.setState({flights: listFlights});
             console.log(this.state.flights);
+<<<<<<< HEAD
             
+=======
+
         //   this.setState({
         //     flights: results.data,
         //     hasLoaded: true});
         //   setTimeout(fetchFlights, 4000);
+>>>>>>> cdf5b87f97aeba453a5fcc76b590783a95200a84
           })
         };
-        // fetchFlights();
 
     render() {
         return(
@@ -54,18 +57,16 @@ class SearchForm extends Component {
         this._handleSubmit = this._handleSubmit.bind( this );
     }
     _handleInputFrom(event) {
-        this.setState({from: event.target.value})
+        this.setState({from: event.target.value.toUpperCase()})
     }
 
     _handleInputTo(event) {
-        this.setState({to: event.target.value})
+        this.setState({to: event.target.value.toUpperCase()})
     }
 
     _handleSubmit(event) {
         event.preventDefault();
         this.props.onSubmit(this.state.from, this.state.to);
-        // this.setState({from: ''});
-        // this.setState({to: ''});
     }
     render() {
         return(
@@ -81,9 +82,34 @@ class SearchResult extends Component {
     render() {
         return(
             <div>
-                <p>Flight Search Result coming</p>
-                <p>{this.props.flights.map( (flight) => <p>{flight.date} {flight.from} {flight.to}</p>)}</p>
-                
+                <h3>Flight Search Results</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Flight</th>
+                            <th>From</th>
+                            <th> > </th>
+                            <th>To</th>
+                            <th>Plane</th>
+                        </tr>
+                    </thead>
+                    {this.props.flights.map( (flight) =>
+                    <tbody key={flight.id + 1}>
+                        <tr key={flight.id + 2}>
+                            <td key={flight.id + 3}>{flight.date}</td>
+                            <td key={flight.id + 4}>{flight.flight_num}</td>
+                            <td key={flight.id + 5}>{flight.from}</td>
+                            <td key={flight.id + 6}> > </td>
+                            <td key={flight.id + 7}>{flight.to}</td>
+                            <td key={flight.id + 8}>{flight.airplane_id}</td>
+                        </tr>
+                    </tbody>
+
+                )}
+                </table>
+
+
             </div>
         );
     }

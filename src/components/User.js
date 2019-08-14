@@ -15,7 +15,8 @@ class User extends Component {
     };
 
     this._handleSubmit = this._handleSubmit.bind(this);
-    this._handleInput = this._handleInput.bind(this);
+    this._handleInputName = this._handleInputName.bind(this);
+    this._handleInputAdmin = this._handleInputAdmin.bind(this);
   }
 
   // when the form is submitted, make a post request to the backend to create a user.
@@ -25,19 +26,38 @@ class User extends Component {
       // clear the form
       // TODO: handle the user in rails. How does this state persist?
       console.log(result);
+      let urlstr = window.location.href;
+      if (urlstr.includes('#')) {
+        urlstr = urlstr.split('#')[0] + '#/'
+      }
+      window.location.replace(urlstr);
     });
   }
 
   // as you change the input field, update the state.name to reflect
-  _handleInput (event) {
-    this.setState({name: event.target.value});
+  _handleInputName (event) {
+    this.setState({name: event.target.value})
   }
-
+  _handleInputAdmin () {
+    this.setState({is_admin: true});
+  }
+    
   render() {
       return(
-          <form onSubmit={ this._handleSubmit }>
+          <form onSubmit={ this._handleSubmit } action="/">
+          <label>
             Name:
-            <input type="text" onInput={ this._handleInput } />
+            <input name="name" type="text" placeholder="type your name here" required onInput={ this._handleInputName } defaultValue=""/>
+          </label>
+          <br />
+          <label>
+          Is admin:
+          <input name="is_admin"
+            type="checkbox"
+            onClick={this._handleInputAdmin} defaultChecked={this.state.is_admin} />
+          </label>
+          <br />
+          <input type="submit" value="Sign up" />
           </form>
       );
   }
