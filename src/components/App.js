@@ -1,12 +1,18 @@
 import React from 'react';
-import Test from './Test';
+import Home from './Home';
+import Search from './Search';
+// import Test from './Test';
 import User from './User';
+
+import { Link } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
+      <Home />
       <User />
-      <Test />
+      <Search /> 
+      {/* <Test /> */}
     </div>
   );
 }
