@@ -24,7 +24,15 @@ class Search extends Component {
             };
             this.setState({flights: listFlights});
             console.log(this.state.flights);
+<<<<<<< HEAD
             
+=======
+
+        //   this.setState({
+        //     flights: results.data,
+        //     hasLoaded: true});
+        //   setTimeout(fetchFlights, 4000);
+>>>>>>> cdf5b87f97aeba453a5fcc76b590783a95200a84
           })
         };
 
@@ -91,17 +99,17 @@ class SearchResult extends Component {
                         <tr key={flight.id + 2}>
                             <td key={flight.id + 3}>{flight.date}</td>
                             <td key={flight.id + 4}>{flight.flight_num}</td>
-                            <td key={flight.id + 5}>{flight.from}</td>  
+                            <td key={flight.id + 5}>{flight.from}</td>
                             <td key={flight.id + 6}> > </td>
                             <td key={flight.id + 7}>{flight.to}</td>
                             <td key={flight.id + 8}>{flight.airplane_id}</td>
-                        </tr>   
+                        </tr>
                     </tbody>
-                 
+
                 )}
                 </table>
-                
-                
+
+
             </div>
         );
     }
