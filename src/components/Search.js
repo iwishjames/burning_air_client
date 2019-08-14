@@ -24,7 +24,7 @@ class Search extends Component {
             };
             this.setState({flights: listFlights});
             console.log(this.state.flights);
-            
+
         //   this.setState({
         //     flights: results.data,
         //     hasLoaded: true});
@@ -83,14 +83,10 @@ class SearchResult extends Component {
             <div>
                 <p>Flight Search Result coming</p>
                 <p>{this.props.flights.map( (flight) => <p>{flight.date} {flight.from} {flight.to}</p>)}</p>
-                
+
             </div>
         );
     }
 }
-<<<<<<< HEAD
-export default Search;
-=======
 
 export default Search;
->>>>>>> 5c0f667857726913e3061f1d12986c6185b8ac14

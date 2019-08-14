@@ -5,6 +5,9 @@ import Search from './Search';
 // import Test from './Test';
 import User from './User';
 import BookFlight from './BookFlight';
+import Airplanes from './Airplanes';
+import Flights from './Flights';
+
 
 import { Link } from 'react-router-dom';
 

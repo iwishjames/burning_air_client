@@ -8,6 +8,10 @@ import User from './components/User';
 import Search from './components/Search';
 import BookFlight from './components/BookFlight';
 import Test from './components/Test';
+import Airplanes from './components/Airplanes';
+import Flights from './components/Flights';
+
+
 
 // Not a functional component. It's just a collection of JSX.
 const Routes = (
@@ -17,6 +21,8 @@ const Routes = (
             <Route exact path="/user" component={ User } />
             <Route exact path="/search" component={ Search } />
             <Route exact path="/flights" component={ Test } />
+            <Route exact path="/admin/airplanes" component={ Airplanes } />
+            <Route exact path="/admin/flights" component={ Flights } />
             <Route path="/flight/:id" component={ BookFlight } />
         </div>
     </Router>
