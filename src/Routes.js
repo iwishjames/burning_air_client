@@ -21,12 +21,8 @@ const Routes = (
             <Route exact path="/user" component={ User } />
             <Route exact path="/search" component={ Search } />
             <Route exact path="/flights" component={ Test } />
-<<<<<<< HEAD
-           
-=======
             <Route exact path="/admin/airplanes" component={ Airplanes } />
             <Route exact path="/admin/flights" component={ Flights } />
->>>>>>> cdf5b87f97aeba453a5fcc76b590783a95200a84
             <Route path="/flight/:id" component={ BookFlight } />
         </div>
     </Router>
