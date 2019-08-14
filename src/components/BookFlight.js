@@ -103,11 +103,6 @@ class BookFlight extends Component {
   render() {
     const flight = this.state.flight.flight;
     if (flight) {
-      if (this.state.seats) {
-        const seatObject = this.state.seats.find((s) => { return s.id == this.state.lastChecked.id });
-        console.log(seatObject.row);
-      }
-
 
       const divGrid = {
         display: "grid",
@@ -115,7 +110,6 @@ class BookFlight extends Component {
         gridTemplateRows: "repeat(" + flight.airplane.rows + ", 1fr)",
         maxWidth: "800px",
         minWidth: "300px",
-
       };
 
       const divItemTaken = {
@@ -168,11 +162,6 @@ class BookFlight extends Component {
                 }
                 </div>
               </div>
-              <form method="post" action={'http://localhost:3000/reservations'}>
-
-                <input id="seat_row" name="seat_row" type="hidden" value={seatObject.row} />
-                <button type="submit">Book</button>
-              </form>
           </div>
       );
     }

@@ -12,8 +12,8 @@ class NavBar extends Component {
             <li><Link to="/users">All users</Link></li>
 
             <li><Link to="/admin">Admin</Link></li>
-            <li><Link to="/admin/airplane">Create Airplane</Link></li>
-            <li><Link to="/admin/flight">Create flight</Link></li>
+            <li><Link to="/admin/airplanes">Create Airplane</Link></li>
+            <li><Link to="/admin/flights">Create flight</Link></li>
         </ul>
       </div>
     );
