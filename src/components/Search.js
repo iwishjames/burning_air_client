@@ -25,13 +25,8 @@ class Search extends Component {
             this.setState({flights: listFlights});
             console.log(this.state.flights);
             
-        //   this.setState({
-        //     flights: results.data,
-        //     hasLoaded: true});
-        //   setTimeout(fetchFlights, 4000);
           })
         };
-        // fetchFlights();
 
     render() {
         return(
@@ -54,18 +49,16 @@ class SearchForm extends Component {
         this._handleSubmit = this._handleSubmit.bind( this );
     }
     _handleInputFrom(event) {
-        this.setState({from: event.target.value})
+        this.setState({from: event.target.value.toUpperCase()})
     }
 
     _handleInputTo(event) {
-        this.setState({to: event.target.value})
+        this.setState({to: event.target.value.toUpperCase()})
     }
 
     _handleSubmit(event) {
         event.preventDefault();
         this.props.onSubmit(this.state.from, this.state.to);
-        // this.setState({from: ''});
-        // this.setState({to: ''});
     }
     render() {
         return(
@@ -113,9 +106,5 @@ class SearchResult extends Component {
         );
     }
 }
-<<<<<<< HEAD
-export default Search;
-=======
 
 export default Search;
->>>>>>> 5c0f667857726913e3061f1d12986c6185b8ac14
