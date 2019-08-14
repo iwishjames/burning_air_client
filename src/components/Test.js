@@ -33,7 +33,8 @@ class Test extends Component {
               <p>Testing whether we can communicate to rails. To do this we need to recieve:
                   flights
               </p>
-                <p>{ this.state.flights.map((flight) => <p>{flight.date}: flight {flight.id} from {flight.from} to {flight.to} on airplane {flight.airplane_id}</p>)}
+                <p>{ this.state.flights.map((flight) =>
+                  {flight.date}: flight {flight.id} from {flight.from} to {flight.to} on airplane {flight.airplane_id})}
                 </p>
           </div>
       );
