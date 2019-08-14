@@ -30,31 +30,63 @@ class Airplanes extends Component {
 
   render() {
     const plane = this.state.airplanes;
-
-    const divGrid = {
-      display: "grid",
-      color: "pink",
-      gridTemplateColumns: "repeat(" + plane.column + ", 1fr)",
-      gridTemplateRows: "repeat(" + plane.rows + ", 1fr)",
-      backgroundColor: "black"
-    };
-    
+    const divItemFree = {
+      borderRadius: "3px",
+      border: "1px solid #ccc",
+      backgroundColor: "#eee",
+      color: "#555",
+      margin: "1px",
+      textAlign: "center",
+      padding: "8px",
+      cursor: "pointer"
+    }
     const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
 
       return(
           <div>
-              <h1>All Airplanes</h1>
-                { this.state.airplanes.map((airplane) =>
-                  <div>
+              <h1>Creat a New Airplane</h1>
+              <form>
+                <label for="name">Name: </label>
+                <input type="text" id="name" placeholder="name" />
+
+                <label for="rows">Rows: </label>
+                <input type="number" id="rows" placeholder="5" />
+
+                <label for="columns">Columns: </label>
+                <input type="number" id="columns" placeholder="43" />
+
+                <input type="submit" value="Create" />
+              </form>
+              <h2>All Airplanes</h2>
+                { this.state.airplanes.map((airplane) => {
+                  const divGrid = {
+                    display: "grid",
+                    gridTemplateColumns: "repeat(" + airplane.columns + ", auto)",
+                    gridTemplateRows: "repeat(" + airplane.rows + ", auto)",
+                    minWidth: "300px",
+                    maxWidth: "400px",
+                    minHeight: "300px",
+                    maxHeight: "400px",
+                  };
+                  let seatArray = [];
+                  let seats = airplane.rows * airplane.columns;
+                  for (let i=0; i < airplane.rows; i++) {
+                    for (let j=1; j < airplane.columns + 1; j++) {
+                      seatArray.push(j + alphabet[i]);
+                    }
+
+                  }
+                  let seatFillers = [];
+                  for (let i=0; i < seats; i++) {
+                    seatFillers.push(i);
+                  }
+                   return <div>
                     <p> Airplane {airplane.name}: rows {airplane.rows} columns {airplane.columns}</p>
-                    <div class="row_limit">
-                      rows
-                      <div class="colmn_limit seatDiagram">
-                      columns
-                      </div>
+                    <div style={divGrid}>
+                      { seatArray.map((s) => <div style={ divItemFree }>{s}</div>) }
                     </div>
                   </div>
-                )}
+                })}
           </div>
       );
   }
