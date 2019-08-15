@@ -85,7 +85,7 @@ class SearchResult extends Component {
                             <th width="20%">Date</th>
                             <th width="20%">Flight</th>
                             <th width="20%">From</th>
-                            <th width="20%"> > </th>
+                            <th width="20%">  </th>
                             <th width="20%">To</th>
                             <th width="20%">Plane</th>
                         </tr>
