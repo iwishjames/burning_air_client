@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 // use this URL to query using axios below
-const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/flights.json';
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/users.json';
 
 class Signup extends Component {
   constructor () {
@@ -41,7 +41,7 @@ class Signup extends Component {
   _handleInputAdmin () {
     this.setState({is_admin: true});
   }
-    
+
   render() {
       return(
         <div>
