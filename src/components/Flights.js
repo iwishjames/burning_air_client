@@ -29,7 +29,6 @@ class Flights extends Component {
   }
 
     saveFlight(flight_num, date, from, to, airplane_id) {
-      this.setState({hasLoaded: false});
       axios.post(SERVER_URL, {
         flight_num: flight_num,
         date: date,
@@ -38,8 +37,7 @@ class Flights extends Component {
         airplane_id: airplane_id,
       }).then((result) => {
       this.setState({
-        flights: [... this.state.flights, result.data],
-        hasLoaded: true})
+        flights: [... this.state.flights, result.data]})
       });
   }
 
@@ -166,7 +164,6 @@ class Flightsform extends Component {
 // -- Flight Gallery -- //
 class Gallery extends Component{
   render(){
-
       return(
         <div>
           <h3>All existing flights</h3>
@@ -177,7 +174,6 @@ class Gallery extends Component{
                   <th width="20%">Flight</th>
                   <th width="20%">From > To</th>
                   <th width="20%">Plane</th>
-                  <th width="20%">Seats</th>
                 </tr>
               </thead>
               {this.props.flights.map( (flight) =>
@@ -185,9 +181,8 @@ class Gallery extends Component{
                 <tr>
                   <td align="center">{flight.date}</td>
                   <td align="center"><Link to={ '/flight/' + flight.id }> {flight.flight_num}</Link></td>
-                  <td align="center">{flight.from.toUpperCase()} ✈ {flight.to.toUpperCase()}</td>
+                  <td align="center">{flight.from ? flight.from.toUpperCase() : "" } ✈ {flight.to ? flight.to.toUpperCase() : "" }</td>
                   <td align="center">{flight.airplane_id}</td>
-                  <td align="center">Seat</td>
                 </tr>
               </tbody>
               )}
