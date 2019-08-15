@@ -9,3 +9,16 @@
   border-bottom-style: dashed;
   padding-bottom: 10px;
 }
+
+
+.flightTable2 {
+  margin: 0 auto;
+  width: 550px;
+}
+
+.flightTable2 td {
+  padding-top: 10px;
+  border-bottom: solid 1px grey;
+  border-bottom-style: dashed;
+  padding-bottom: 10px;
+}

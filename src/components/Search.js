@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../search.css';
+import './flights.css';
 import { Link } from 'react-router-dom';
 
 
@@ -78,7 +79,7 @@ class SearchForm extends Component {
 class SearchResult extends Component {
     render() {
         return(
-            <div>
+            <div class="flightTable2">
                 <h3>Flight Search Results</h3>
                 <table>
                     <thead>
