@@ -142,7 +142,7 @@ class BookFlight extends Component {
       return(
           <div>
               <h1>Crapping Airline</h1>
-              <h2>Flight {this.props.match.params.id}</h2>
+              <h2>Flight { flight.flight_num }</h2>
               <p>{ flight.date } Flight { flight.flight_num } { flight.from } > { flight.to }</p>
               <p>
                 Name:

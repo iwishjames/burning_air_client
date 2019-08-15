@@ -30,10 +30,13 @@ class Airplanes extends Component {
 
   render() {
     const plane = this.state.airplanes;
+    const background = '../images/chair_empty.png';
     const divItemFree = {
       borderRadius: "3px",
       border: "1px solid #ccc",
       backgroundColor: "#eee",
+      backgroundImage: "url(" + background + ")",
+
       color: "#555",
       margin: "1px",
       textAlign: "center",
@@ -46,13 +49,13 @@ class Airplanes extends Component {
           <div>
               <h1>Creat a New Airplane</h1>
               <form>
-                <label for="name">Name: </label>
+                <label htmlFor="name">Name: </label>
                 <input type="text" id="name" placeholder="name" />
 
-                <label for="rows">Rows: </label>
+                <label htmlFor="rows">Rows: </label>
                 <input type="number" id="rows" placeholder="5" />
 
-                <label for="columns">Columns: </label>
+                <label htmlFor="columns">Columns: </label>
                 <input type="number" id="columns" placeholder="43" />
 
                 <input type="submit" value="Create" />
@@ -80,10 +83,10 @@ class Airplanes extends Component {
                   for (let i=0; i < seats; i++) {
                     seatFillers.push(i);
                   }
-                   return <div>
+                   return <div key={airplane.id}>
                     <p> Airplane {airplane.name}: rows {airplane.rows} columns {airplane.columns}</p>
                     <div style={divGrid}>
-                      { seatArray.map((s) => <div style={ divItemFree }>{s}</div>) }
+                      { seatArray.map((s) => <div key={s} style={ divItemFree }>{s}</div>) }
                     </div>
                   </div>
                 })}
