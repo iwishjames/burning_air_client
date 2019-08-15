@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/burning_air_client/precache-manifest.d4358263c7d4d8a0d6ae83200c4de9c3.js"
+  "/burning_air_client/precache-manifest.90b58dc515b893414f7b12d5f31ff5b3.js"
 );
 
 self.addEventListener('message', (event) => {
