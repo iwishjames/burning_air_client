@@ -33,7 +33,8 @@ class Search extends Component {
     render() {
         return(
             <div class="flightSearchBar">
-                <h1>CrashTastic Airline</h1>
+                <h1>🔥 Welcome to CrashTastic Airlines! 🔥 </h1>
+                <p>Where are we <i>"flying"</i> to today?</p>
                 <SearchForm onSubmit={ this.fetchFlights } />
                 <SearchResult flights={ this.state.flights } />
             </div>

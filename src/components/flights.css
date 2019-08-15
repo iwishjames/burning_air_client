@@ -1,0 +1,11 @@
+.flightTable {
+  margin: 0 auto;
+  width: 390px;
+}
+
+.flightTable td {
+  padding-top: 10px;
+  border-bottom: solid 1px grey;
+  border-bottom-style: dashed;
+  padding-bottom: 10px;
+}

@@ -31,9 +31,7 @@ class Test extends Component {
       return(
           <div>
               <h1>CrashTastic Airline</h1>
-              <p>Testing whether we can communicate to rails. To do this we need to recieve:
-                  flights
-              </p>
+                <p><i>All flight schedules</i></p>
                 <p>{ this.state.flights.map((flight) => <p><Link to={"/flight/" + flight.id }>{flight.date}: flight {flight.id} from {flight.from} to {flight.to} on airplane {flight.airplane_id}</Link></p>)}
                 </p>
           </div>

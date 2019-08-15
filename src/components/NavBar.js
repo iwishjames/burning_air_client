@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './navbar.css';
 
 class NavBar extends Component {
   render() {
     return(
-      <div>
+      <div class="NavBar">
             <Link to="/signup"> Sign up</Link>  |
             <Link to="/signin"> Sign In</Link>  |
 

@@ -7,11 +7,11 @@ class Footer extends Component {
       padding: "50px 0 30px 0",
       color: "grey",
       fontSize: "12px",
-      textAlign: "right"
+      textAlign: "center",
     }
     return(
       <div style={footerStyle}>
-        Thank you for booking your flights with us.
+        "Thank you" for booking your flights with us.
       </div>
     );
   }

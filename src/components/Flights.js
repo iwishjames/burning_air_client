@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './flights.css';
 
 const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/flights.json';
 const SERVER_URL_PLANES = 'https://crashtasticairlines.herokuapp.com/airplanes.json';
@@ -168,7 +169,7 @@ class Gallery extends Component{
   render(){
 
       return(
-        <div>
+        <div class="flightTable">
           <h3>All existing flights</h3>
             <table>
               <thead>
@@ -177,7 +178,6 @@ class Gallery extends Component{
                   <th width="20%">Flight</th>
                   <th width="20%">From > To</th>
                   <th width="20%">Plane</th>
-                  <th width="20%">Seats</th>
                 </tr>
               </thead>
               {this.props.flights.map( (flight) =>
@@ -187,7 +187,6 @@ class Gallery extends Component{
                   <td align="center"><Link to={ '/flight/' + flight.id }> {flight.flight_num}</Link></td>
                   <td align="center">{flight.from.toUpperCase()} ✈ {flight.to.toUpperCase()}</td>
                   <td align="center">{flight.airplane_id}</td>
-                  <td align="center">Seat</td>
                 </tr>
               </tbody>
               )}
