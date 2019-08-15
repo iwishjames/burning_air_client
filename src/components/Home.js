@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     return (
         <div>
-            <h2>Welcome to CrashTastic Airline </h2>
+            <h2>🔥 Welcome to CrashTastic Airlines 🔥 </h2>
         </div>
     )
 };
