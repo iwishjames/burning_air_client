@@ -146,10 +146,10 @@ class BookFlight extends Component {
       const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
       return(
           <div>
-              <h1>Crapping Airline</h1>
+              <h1>🔥 Book a Flight with CrashTastic Airlines 🔥</h1>
               <h2>Name: {this.state.name}</h2>
               <h2>Flight { flight.flight_num }</h2>
-              <p>{ flight.date } Flight { flight.flight_num } { flight.from } > { flight.to }</p>
+              <p>{ flight.date }: { flight.from } ✈ { flight.to }</p>
               <p>Seats:</p>
               <div className="planeContainer">
               <div style={divGrid}>
