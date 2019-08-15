@@ -22,12 +22,17 @@ class Flights extends Component {
       setTimeout(fetchFlights, 4000);
       })
     };
-
     fetchFlights();
     }
 
-    saveFlight(flight_num) {
-      axios.post(SERVER_URL, {flight_num: flight_num}).then((result) => {
+    saveFlight(flight_num, date, from, to, airplane_id) {
+      axios.post(SERVER_URL, {
+        flight_num: flight_num,
+        date: date,
+        from: from,
+        to: to,
+        airplane_id: airplane_id,
+      }).then((result) => {
 
       this.setState({flights: [... this.state.flights, result.data]})
       });
@@ -36,7 +41,7 @@ class Flights extends Component {
   render(){
       return (
         <div>
-  	     <h1> Burning Flights</h1>
+  	     <h1> Create a New Flight</h1>
   	      <Flightsform onSubmit={ this.saveFlight } />
           <Gallery flights={ this.state.flights } />
           {/*so pretty much the secret from te SecretForm child goes up to the parent and then gets pushed into the secrets Gallery child. */}
@@ -45,24 +50,68 @@ class Flights extends Component {
     }
   }
 
+
+
+
+
+
+
 // -- Flight Form -- //
 class Flightsform extends Component {
   constructor(){
     super();
-    this.state = { flight_num: '' }
+    this.state = {
+      flight_num: '',
+      date: "",
+      from: "",
+      to: "",
+      airplane_id: "",
+     }
+
     this._handleChange = this._handleChange.bind(this);
+    this._handleChangeDate = this._handleChangeDate.bind(this);
+    this._handleChangeFrom = this._handleChangeFrom.bind(this);
+    this._handleChangeTo = this._handleChangeTo.bind(this);
+    this._handleChangeAirplane_id = this._handleChangeAirplane_id.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
   }
 
   _handleSubmit(event) {
     event.preventDefault();
-    this.props.onSubmit(this.state.flight_num);
-    this.setState( { flight_num: '' }); // Reset the form.
+    this.props.onSubmit(this.state.flight_num, this.state.date, this.state.from, this.state.to);
+    this.setState( {
+      flight_num: '',
+      date: "",
+      from: "",
+      to: "",
+      airplane_id: "",
+    }); // Reset the form.
+
   }
 
   _handleChange(event){
     this.setState( { flight_num: event.target.value } );
   }
+
+  _handleChangeDate(event){
+    this.setState( { date: event.target.value } );
+  }
+
+  _handleChangeFrom(event){
+    this.setState( { from: event.target.value } );
+  }
+
+  _handleChangeTo(event){
+    this.setState( { to: event.target.value } );
+  }
+
+  _handleChangeAirplane_id(event){
+    this.setState( { airplane_id: event.target.value } );
+  }
+
+
+
+
 
 
   render() {
@@ -73,16 +122,16 @@ class Flightsform extends Component {
       <input onChange={this._handleChange} value={this.state.flight_num} type="number" name="flight_num" required />
 
       <label for="date">Date</label>
-      <input type="date" name="date" required />
+      <input onChange={this._handleChangeDate} type="date" name="date" required />
 
       <label for="from">From</label>
-      <input type="text" name="from" required />
+      <input onChange={this._handleChangeFrom} type="text" name="from" required />
 
       <label for="to">To</label>
-      <input type="text" name="to" required />
+      <input onChange={this._handleChangeTo} type="text" name="to" required />
 
       <label for="airplane_id">Airplane</label>
-      <input type="number" name="airplane_id" required />
+      <input onChange={this._handleChangeAirplane_id} type="number" name="airplane_id" required />
 
       <button type="submit" value="Tell" >Create Flight</button>
 
@@ -113,7 +162,7 @@ class Gallery extends Component{
               <tr>
                 <td align="center">{flight.date}</td>
                 <td align="center"><a href={ 'http://localhost:3001/#/flight/' + flight.id }> {flight.flight_num}</a></td>
-                <td align="center">{flight.from.toUpperCase()} > {flight.to.toUpperCase()}</td>
+                <td align="center">{flight.from.toUpperCase()} ✈ {flight.to.toUpperCase()}</td>
                 <td align="center">{flight.airplane_id}</td>
                 <td align="center">Seat</td>
               </tr>

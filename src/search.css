@@ -1,0 +1,13 @@
+.flightSearchBar {
+  margin: 0 auto;
+  width: 800px;
+  height: 500px;
+  background-image: linear-gradient(#f5af19, #f12711);
+  text-align: center;
+  border-radius: 5px;
+}
+
+.flightSearchBar h1 {
+  padding-top: 15px;
+  color: white;
+}
