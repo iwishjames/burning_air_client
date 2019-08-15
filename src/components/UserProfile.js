@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class UserProfile extends Component {
   constructor (props) {
@@ -11,7 +12,7 @@ class UserProfile extends Component {
     };
 
     // use this URL to query using axios below
-    const SERVER_URL = 'http://localhost:3000/users/' + this.props.match.params.id + '.json';
+    const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/users/' + this.props.match.params.id + '.json';
 
     const fetchUser = () => {axios.get(SERVER_URL)
         .then((results) => {
@@ -33,7 +34,7 @@ class UserProfile extends Component {
           <p>flights:
             <ul>
             { this.state.user.user.flights.map((flight) => {
-              return <li><a href={ 'http://localhost:3001/#/flight/' + flight.id }>Flight: { flight.from } > { flight.to }, Seat: { flight.reservation_column }{ flight.reservation_row }</a></li>
+              return <li><Link to={ '/flight/' + flight.id }>Flight: { flight.from } > { flight.to }, Seat: { flight.reservation_column }{ flight.reservation_row }</Link></li>
             }) }
             </ul>
 

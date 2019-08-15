@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 // use this URL to query using axios below
-const SERVER_URL = 'http://localhost:3000/flights.json';
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/flights.json';
 
 class Test extends Component {
   constructor () {
@@ -33,7 +34,7 @@ class Test extends Component {
               <p>Testing whether we can communicate to rails. To do this we need to recieve:
                   flights
               </p>
-                <p>{ this.state.flights.map((flight) => <p><a href={ 'http://localhost:3001/#/flight/' + flight.id }>{flight.date}: flight {flight.id} from {flight.from} to {flight.to} on airplane {flight.airplane_id}</a></p>)}
+                <p>{ this.state.flights.map((flight) => <p><Link to={"/flight/" + flight.id }>{flight.date}: flight {flight.id} from {flight.from} to {flight.to} on airplane {flight.airplane_id}</Link></p>)}
                 </p>
           </div>
       );

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import User from './User';
+import chair_empty from '../images/chair_empty.png';
+import chair_filled from '../images/chair_filled.png';
 
 class BookFlight extends Component {
   constructor (props) {
@@ -17,7 +19,7 @@ class BookFlight extends Component {
       name: "",
     };
     // use this URL to query using axios below
-    const SERVER_URL_FLIGHT = 'http://localhost:3000/flights/' + this.props.match.params.id + '.json';
+    const SERVER_URL_FLIGHT = 'https://crashtasticairlines.herokuapp.com/flights/' + this.props.match.params.id + '.json';
     // fetch the information about the flight that this page is on
     // recursively call every 4 secs to check if the seats have been checked by other users!
     // TODO: add in user name to seat table
@@ -48,9 +50,9 @@ class BookFlight extends Component {
     // TODO: when the user checks a box, first check if it has been checked in the database since the last call.
     const seatId = event.target.value;
     // then check the box, and send this to the database so nobody else can snag the seat.
-    const url = "http://localhost:3000/seats/" + event.target.value + ".json";
+    const url = "https://crashtasticairlines.herokuapp.com/seats/" + event.target.value + ".json";
     // use this URL to query using axios below
-    const SERVER_URL_FLIGHT = 'http://localhost:3000/flights/' + this.props.match.params.id + '.json';
+    const SERVER_URL_FLIGHT = 'https://crashtasticairlines.herokuapp.com/flights/' + this.props.match.params.id + '.json';
     axios.get(SERVER_URL_FLIGHT).then((results) => {
       this.setState({ seats: results.data.flight.seats });
       return results;
@@ -82,8 +84,8 @@ class BookFlight extends Component {
 
   uncheckSeat () {
     console.log(this.state.lastChecked);
-    const SERVER_URL_FLIGHT = 'http://localhost:3000/flights/' + this.props.match.params.id + '.json';
-    const url = "http://localhost:3000/seats/" + this.state.lastChecked.value + ".json";
+    const SERVER_URL_FLIGHT = 'https://crashtasticairlines.herokuapp.com/flights/' + this.props.match.params.id + '.json';
+    const url = "https://crashtasticairlines.herokuapp.com/seats/" + this.state.lastChecked.value + ".json";
     axios.post(url, {
       is_taken: false,
       taken_by_user: "",
@@ -114,9 +116,10 @@ class BookFlight extends Component {
 
       const divItemTaken = {
         borderRadius: "3px",
-        border: "1px solid #777",
-        backgroundColor: "#888",
-        color: "#666",
+        border: "1px solid #ccc",
+        backgroundColor: "#eee",
+
+        color: "#aaa",
         margin: "1px",
         textAlign: "center",
         padding: "8px",
@@ -127,11 +130,20 @@ class BookFlight extends Component {
         borderRadius: "3px",
         border: "1px solid #ccc",
         backgroundColor: "#eee",
+
         color: "#555",
         margin: "1px",
         textAlign: "center",
         padding: "8px",
         cursor: "pointer"
+      }
+
+      const spanText = {
+      }
+      const chairImg = {
+        width: "60px",
+        height: "60px",
+        display: "block",
       }
 
       const divCheckbox = {
@@ -142,7 +154,7 @@ class BookFlight extends Component {
       return(
           <div>
               <h1>Crapping Airline</h1>
-              <h2>Flight {this.props.match.params.id}</h2>
+              <h2>Flight { flight.flight_num }</h2>
               <p>{ flight.date } Flight { flight.flight_num } { flight.from } > { flight.to }</p>
               <p>
                 Name:
@@ -156,7 +168,8 @@ class BookFlight extends Component {
                 }).map((seat) =>
                     <label htmlFor={ seat.id }  key={ seat.id } style={ seat.is_taken ? divItemTaken : divItemFree }>
                       <input type="radio" style={ divCheckbox } id={ seat.id } value={ seat.id } data-booked={ seat.is_taken ? true : false } onChange={ this._handleCheck } />
-                      { seat.column }{ alphabet[seat.row - 1] } { seat.is_taken ? "✘" : "✔" } { seat.taken_by_user }
+                      <span style={spanText} >{ seat.column }{ alphabet[seat.row - 1] } { seat.taken_by_user }</span>
+                      <img src={ seat.is_taken ? chair_filled : chair_empty } style={chairImg} />
                     </label>
                   )
                 }

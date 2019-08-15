@@ -5,16 +5,14 @@ class NavBar extends Component {
   render() {
     return(
       <div>
-        <ul>
-            <li><Link to="/user">Log in</Link></li>
-            <li><Link to="/search">Search flight</Link></li>
-            <li><Link to="/flights">All flights</Link></li>
-            <li><Link to="/users">All users</Link></li>
+            <Link to="/user">Sign Up</Link>  |
+            <Link to="/search">Search flight</Link>  |
+            <Link to="/flights">All flights</Link>  |
+            <Link to="/users">All users</Link>  |
 
-            <li><Link to="/admin">Admin</Link></li>
-            <li><Link to="/admin/airplanes">Create Airplane</Link></li>
-            <li><Link to="/admin/flights">Create flight</Link></li>
-        </ul>
+            <Link to="/admin">Admin</Link>  |
+            <Link to="/admin/airplanes">Create Airplane</Link>  |
+            <Link to="/admin/flights">Create flight</Link>
       </div>
     );
   }

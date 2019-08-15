@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../search.css';
+import { Link } from 'react-router-dom';
 
 
-const SERVER_URL = 'http://localhost:3000/flights.json';
+
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/flights.json';
 
 class Search extends Component {
     constructor () {
@@ -91,12 +93,21 @@ class SearchResult extends Component {
                     {this.props.flights.map( (flight) =>
                     <tbody key={flight.id + 1}>
                         <tr key={flight.id + 2}>
+<<<<<<< HEAD
                             <td align="center" key={flight.id + 3}>{flight.date}</td>
                             <td align="center" key={flight.id + 4}><a href={ 'http://localhost:3001/#/flight/' + flight.id }>{flight.flight_num}</a></td>
                             <td align="center" key={flight.id + 5}>{flight.from}</td>
                             <td align="center" key={flight.id + 6}> > </td>
                             <td align="center" key={flight.id + 7}>{flight.to}</td>
                             <td align="center" key={flight.id + 8}>{flight.airplane_id}</td>
+=======
+                            <td key={flight.id + 3}>{flight.date}</td>
+                            <td key={flight.id + 4}><Link to={ '/flight/' + flight.id }>{flight.flight_num}</Link></td>
+                            <td key={flight.id + 5}>{flight.from}</td>
+                            <td key={flight.id + 6}> > </td>
+                            <td key={flight.id + 7}>{flight.to}</td>
+                            <td key={flight.id + 8}>{flight.airplane_id}</td>
+>>>>>>> bbc0e413b8bb11f29537eb1600c67537bafe7c2a
                         </tr>
                     </tbody>
 
