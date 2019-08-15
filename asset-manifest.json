@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/burning_air_client/static/css/main.34de6062.chunk.css",
+    "main.js": "/burning_air_client/static/js/main.8ab7b03f.chunk.js",
+    "main.js.map": "/burning_air_client/static/js/main.8ab7b03f.chunk.js.map",
+    "runtime~main.js": "/burning_air_client/static/js/runtime~main.ca0e0d25.js",
+    "runtime~main.js.map": "/burning_air_client/static/js/runtime~main.ca0e0d25.js.map",
+    "static/js/2.98cebf4e.chunk.js": "/burning_air_client/static/js/2.98cebf4e.chunk.js",
+    "static/js/2.98cebf4e.chunk.js.map": "/burning_air_client/static/js/2.98cebf4e.chunk.js.map",
+    "index.html": "/burning_air_client/index.html",
+    "precache-manifest.995e5bf00871537165c93ab8a8df47c8.js": "/burning_air_client/precache-manifest.995e5bf00871537165c93ab8a8df47c8.js",
+    "service-worker.js": "/burning_air_client/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/burning_air_client/static/css/main.34de6062.chunk.css.map",
+    "static/media/chair_empty.png": "/burning_air_client/static/media/chair_empty.e143c198.png",
+    "static/media/chair_filled.png": "/burning_air_client/static/media/chair_filled.fa6ad40d.png"
+  }
+}
