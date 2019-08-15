@@ -5,7 +5,9 @@ class NavBar extends Component {
   render() {
     return(
       <div>
-            <Link to="/user">Sign Up</Link>  |
+            <Link to="/signup">Sign Up</Link>  |
+            <Link to="/signin">Sign In</Link>  |
+            <Link to="/signout">Sign Out</Link>  |
             <Link to="/search">Search flight</Link>  |
             <Link to="/flights">All flights</Link>  |
             <Link to="/users">All users</Link>  |

@@ -102,7 +102,7 @@ class SearchResult extends Component {
                         </tr>
                     </tbody>
 
-                )}
+                    )}
                 </table>
 
 
