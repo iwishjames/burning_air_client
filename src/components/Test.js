@@ -30,7 +30,7 @@ class Test extends Component {
   render() {
       return(
           <div>
-              <h1>Crapping Airline</h1>
+              <h1>CrashTastic Airline</h1>
               <p>Testing whether we can communicate to rails. To do this we need to recieve:
                   flights
               </p>

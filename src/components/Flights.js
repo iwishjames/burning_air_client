@@ -41,7 +41,7 @@ class Flights extends Component {
   render(){
       return (
         <div>
-  	     <h1> Create a New Flight</h1>
+  	     <h1>CrashTastic Airline</h1>
   	      <Flightsform onSubmit={ this.saveFlight } />
           <Gallery flights={ this.state.flights } />
           {/*so pretty much the secret from te SecretForm child goes up to the parent and then gets pushed into the secrets Gallery child. */}

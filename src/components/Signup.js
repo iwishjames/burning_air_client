@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 // use this URL to query using axios below
-const SERVER_URL = 'http://localhost:3000/users.json';
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/flights.json';
 
 class Signup extends Component {
   constructor () {
