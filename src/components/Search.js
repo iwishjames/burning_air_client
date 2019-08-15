@@ -82,12 +82,12 @@ class SearchResult extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>Flight</th>
-                            <th>From</th>
-                            <th> > </th>
-                            <th>To</th>
-                            <th>Plane</th>
+                            <th width="20%">Date</th>
+                            <th width="20%">Flight</th>
+                            <th width="20%">From</th>
+                            <th width="20%"> > </th>
+                            <th width="20%">To</th>
+                            <th width="20%">Plane</th>
                         </tr>
                     </thead>
                     {this.props.flights.map( (flight) =>
@@ -96,7 +96,7 @@ class SearchResult extends Component {
                             <td align="center" key={flight.id + 3}>{flight.date}</td>
                             <td align="center" key={flight.id + 4}><Link to={ '/flight/' + flight.id }>{flight.flight_num}</Link></td>
                             <td align="center" key={flight.id + 5}>{flight.from}</td>
-                            <td align="center" key={flight.id + 6}> > </td>
+                            <td align="center" key={flight.id + 6}> ✈ </td>
                             <td align="center" key={flight.id + 7}>{flight.to}</td>
                             <td align="center" key={flight.id + 8}>{flight.airplane_id}</td>
                         </tr>

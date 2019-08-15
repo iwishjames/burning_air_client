@@ -47,7 +47,7 @@ class Flights extends Component {
     if (this.state.hasLoaded) {
       return (
         <div>
-  	     <h1> Create a New Flight</h1>
+  	     <h1>CrashTastic Airline</h1>
   	      <Flightsform onSubmit={ this.saveFlight } />
               <Gallery flights={ this.state.flights } />
 

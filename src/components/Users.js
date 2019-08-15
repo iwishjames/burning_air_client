@@ -32,7 +32,7 @@ class Users extends Component {
   render() {
       return(
           <div>
-              <h1>Crapping Airline</h1>
+              <h1>CrashTastic Airline</h1>
               <h2>All Users</h2>
                 <p>{ this.state.users.map((user) => <p><Link to={ '/user/' + user.id }>{user.name}, admin: { user.is_admin ? "true" : "false" }</Link></p>)}
                 </p>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import User from './User'
 import axios from 'axios';
 
-const SERVER_URL = 'http://localhost:3000/users.json';
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/flights.json';
 
 class Signin extends Component {
     constructor() {
@@ -37,7 +37,7 @@ class Signin extends Component {
                   console.log('please sign up');
                   let urlstr = window.location.href;
                 if (urlstr.includes("#")) {
-                    urlstr = urlstr.split("#")[0] + "#/SignUp"
+                    urlstr = urlstr.split("#")[0] + "#/Signup"
                 }
                 
                 window.location.replace(urlstr);
