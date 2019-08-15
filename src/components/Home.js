@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     return (
         <div>
+<<<<<<< HEAD
             <nav>
                 <ul>
                     <li><Link to="/Signup">Sign up</Link></li>
@@ -20,6 +21,9 @@ const Home = () => {
 
 
             <h2>Welcome to CrashTastic Airline </h2>
+=======
+            <h2>🔥 Welcome to CrashTastic Airlines 🔥 </h2>
+>>>>>>> d7e3fd5996f61edede7048f1e439a858cc6c4d29
         </div>
     )
 };

@@ -3,7 +3,7 @@ import React from 'react';
 import Home from './Home';
 import Search from './Search';
 // import Test from './Test';
-import User from './User';
+import Signup from './Signup';
 import BookFlight from './BookFlight';
 import Airplanes from './Airplanes';
 import Flights from './Flights';
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Home />
-      <User />
+      <Signup />
       <Search />
       {/* <Test /> */}
     </div>

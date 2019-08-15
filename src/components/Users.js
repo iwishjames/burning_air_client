@@ -3,42 +3,42 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 // use this URL to query using axios below
-const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/flights.json';
+// const SERVER_URL = 'http://localhost:3000/users.json';
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/users.json';
 
-class Test extends Component {
+
+class Users extends Component {
   constructor () {
     super();
     this.state = {
       // the flights are loaded using axios below
-      flights: [],
+      users: [],
       // hasLoaded to check whether the API request has completed before rendering below
       hasLoaded: false
     };
 
   // fetch the flights from the database every 4 seconds, save into state.flights to be used in render
-  const fetchFlights = () => {
+  const fetchUsers = () => {
     axios.get(SERVER_URL).then((results) => {
       this.setState({
-        flights: results.data,
+        users: results.data,
         hasLoaded: true});
-      setTimeout(fetchFlights, 4000);
+      setTimeout(fetchUsers, 4000);
       })
     };
-    fetchFlights();
+    fetchUsers();
   }
 
   render() {
       return(
           <div>
               <h1>Crapping Airline</h1>
-              <p>Testing whether we can communicate to rails. To do this we need to recieve:
-                  flights
-              </p>
-                <p>{ this.state.flights.map((flight) => <p><Link to={"/flight/" + flight.id }>{flight.date}: flight {flight.id} from {flight.from} to {flight.to} on airplane {flight.airplane_id}</Link></p>)}
+              <h2>All Users</h2>
+                <p>{ this.state.users.map((user) => <p><Link to={ '/user/' + user.id }>{user.name}, admin: { user.is_admin ? "true" : "false" }</Link></p>)}
                 </p>
           </div>
       );
   }
 }
 
-export default Test;
+export default Users;
