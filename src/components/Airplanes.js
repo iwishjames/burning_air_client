@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import chair_empty from '../images/chair_empty.png';
+import chair_filled from '../images/chair_filled.png';
 
 // use this URL to query using axios below
-const SERVER_URL = 'http://localhost:3000/airplanes.json';
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/airplanes.json';
 
 
 class Airplanes extends Component {
@@ -30,18 +32,18 @@ class Airplanes extends Component {
 
   render() {
     const plane = this.state.airplanes;
-    const background = '../images/chair_empty.png';
+    const background = '/../images/chair_empty.png';
     const divItemFree = {
       borderRadius: "3px",
       border: "1px solid #ccc",
       backgroundColor: "#eee",
-      backgroundImage: "url(" + background + ")",
-
+      backgroundImage: "url(" + chair_empty + ")",
+      backgroundSize: "contain",
+      backgroundRepeat: "no-repeat",
       color: "#555",
       margin: "1px",
       textAlign: "center",
       padding: "8px",
-      cursor: "pointer"
     }
     const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
 

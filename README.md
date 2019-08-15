@@ -1,6 +1,6 @@
 # CrashTastic Airlines
 
-Welcome to our airline, [book a flight](www.google.com) with us today!
+Welcome to our airline, [book a flight](https://iwishjames.github.io/burning_air_client/) with us today!
 
 ## Technologies
 
@@ -9,5 +9,5 @@ Welcome to our airline, [book a flight](www.google.com) with us today!
   - Hosted on Github Pages
   - axios for API requests
 - Rails for API backend
-  - Hosted [backend](www.google.com) on Heroku
+  - Hosted [backend](https://crashtasticairlines.herokuapp.com/flights) on Heroku
   - rails cors

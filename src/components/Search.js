@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
-const SERVER_URL = 'http://localhost:3000/flights.json';
+
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/flights.json';
 
 class Search extends Component {
     constructor () {
@@ -89,7 +91,7 @@ class SearchResult extends Component {
                     <tbody key={flight.id + 1}>
                         <tr key={flight.id + 2}>
                             <td key={flight.id + 3}>{flight.date}</td>
-                            <td key={flight.id + 4}><a href={ 'http://localhost:3001/#/flight/' + flight.id }>{flight.flight_num}</a></td>
+                            <td key={flight.id + 4}><Link to={ '/flight/' + flight.id }>{flight.flight_num}</Link></td>
                             <td key={flight.id + 5}>{flight.from}</td>
                             <td key={flight.id + 6}> > </td>
                             <td key={flight.id + 7}>{flight.to}</td>

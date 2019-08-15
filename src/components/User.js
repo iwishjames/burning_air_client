@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 // use this URL to query using axios below
-const SERVER_URL = 'http://localhost:3000/users.json';
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/users.json';
 
 class User extends Component {
   constructor () {
@@ -41,10 +41,11 @@ class User extends Component {
   _handleInputAdmin () {
     this.setState({is_admin: true});
   }
-    
+
   render() {
       return(
           <form onSubmit={ this._handleSubmit } action="/">
+          <h1>Sign Up</h1>
           <label>
             Name:
             <input name="name" type="text" placeholder="type your name here" required onInput={ this._handleInputName } defaultValue=""/>

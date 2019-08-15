@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 // use this URL to query using axios below
-const SERVER_URL = 'http://localhost:3000/users.json';
+// const SERVER_URL = 'http://localhost:3000/users.json';
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/users.json';
+
 
 class Users extends Component {
   constructor () {
@@ -31,7 +34,7 @@ class Users extends Component {
           <div>
               <h1>Crapping Airline</h1>
               <h2>All Users</h2>
-                <p>{ this.state.users.map((user) => <p><a href={ 'http://localhost:3001/#/user/' + user.id }>{user.name}, admin: { user.is_admin ? "true" : "false" }</a></p>)}
+                <p>{ this.state.users.map((user) => <p><Link to={ '/user/' + user.id }>{user.name}, admin: { user.is_admin ? "true" : "false" }</Link></p>)}
                 </p>
           </div>
       );
