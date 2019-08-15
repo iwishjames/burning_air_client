@@ -1,67 +1,80 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+const User = (function () {
+    let name = "";
+    let user_id = 0;
+    let is_admin = false;
 
+    const getName = function() {
+      
+        if (typeof (Storage) !== "undefined") {
+          let temp = localStorage.getItem('full_name');
+          if (temp != null) {
+            name = temp; 
+          }
+        }
+  
+        return name;    // Or pull this from cookie/localStorage
+      };
 
-// use this URL to query using axios below
-const SERVER_URL = 'http://localhost:3000/users.json';
-
-class User extends Component {
-  constructor () {
-    super();
-    this.state = {
-      // set the name of the user in _handleInput
-      name: "",
-      is_admin: false
+    const setName = function(n) {
+        if (n!==null) {
+          name = n;     
+          // Also set this in cookie/localStorage
+          if (typeof (Storage) !== "undefined") {
+            localStorage.setItem('name', name);
+          }
+        }
     };
 
-    this._handleSubmit = this._handleSubmit.bind(this);
-    this._handleInputName = this._handleInputName.bind(this);
-    this._handleInputAdmin = this._handleInputAdmin.bind(this);
-  }
-
-  // when the form is submitted, make a post request to the backend to create a user.
-  _handleSubmit (event) {
-    event.preventDefault();
-    axios.post(SERVER_URL, { name: this.state.name, is_admin: this.state.is_admin }).then((result) => {
-      // clear the form
-      // TODO: handle the user in rails. How does this state persist?
-      console.log(result);
-      let urlstr = window.location.href;
-      if (urlstr.includes('#')) {
-        urlstr = urlstr.split('#')[0] + '#/'
+    const getUserId = function() {
+        if (typeof (Storage) !== "undefined") {
+          let temp = localStorage.getItem('user_id');
+          if (temp != null) {
+            user_id = temp; //playerA or playerB
+          }
+        }
+          return user_id;    // Or pull this from cookie/localStorage
+    };
+      
+    const setUserId = function(id) {
+        user_id = id;     
+          // Also set this in cookie/localStorage
+          //console.log(user_id);
+        if (typeof (Storage) !== "undefined") {
+            localStorage.setItem('user_id', user_id);
+        }
+    };
+      
+    const isAdmin = function() {
+        if (typeof (Storage) !== "undefined") {
+          let temp = localStorage.getItem('is_admin');
+          if (temp != null ) {
+            if (temp==="true" || temp === true) {
+              is_admin = true;
+            } else {
+              is_admin = false;
+            }
+          }
+        }
+        return is_admin;    // Or pull this from cookie/localStorage
+      };
+      
+    const setAdmin = function(ad) {
+        is_admin = ad;     
+          // Also set this in cookie/localStorage
+        if (typeof (Storage) !== "undefined") {
+            localStorage.setItem('is_admin', is_admin);
+        }
+    };
+      
+      return {
+        getUserId: getUserId,
+        setUserId: setUserId,
+        getName: getName,
+        setName: setName,
+        isAdmin: isAdmin,
+        setAdmin: setAdmin
       }
-      window.location.replace(urlstr);
-    });
-  }
-
-  // as you change the input field, update the state.name to reflect
-  _handleInputName (event) {
-    this.setState({name: event.target.value})
-  }
-  _handleInputAdmin () {
-    this.setState({is_admin: true});
-  }
     
-  render() {
-      return(
-          <form onSubmit={ this._handleSubmit } action="/">
-          <label>
-            Name:
-            <input name="name" type="text" placeholder="type your name here" required onInput={ this._handleInputName } defaultValue=""/>
-          </label>
-          <br />
-          <label>
-          Is admin:
-          <input name="is_admin"
-            type="checkbox"
-            onClick={this._handleInputAdmin} defaultChecked={this.state.is_admin} />
-          </label>
-          <br />
-          <input type="submit" value="Sign up" />
-          </form>
-      );
-  }
-}
-
+  } )();
 
 export default User;

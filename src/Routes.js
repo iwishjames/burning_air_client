@@ -4,7 +4,9 @@ import React from 'react';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 import Home from './components/Home';
-import User from './components/User';
+import Signup from './components/Signup';
+import Signin from './components/Signin';
+import Signout from './components/Signout';
 import Search from './components/Search';
 import BookFlight from './components/BookFlight';
 import Test from './components/Test';
@@ -18,7 +20,9 @@ const Routes = (
     <Router>
         <div>
             <Route exact path="/" component={ Home } />
-            <Route exact path="/user" component={ User } />
+            <Route exact path="/signup" component={ Signup } />
+            <Route exact path="/signin" component={ Signin } />
+            <Route exact path="/signout" component={ Signout } />
             <Route exact path="/search" component={ Search } />
             <Route exact path="/flights" component={ Test } />
             <Route exact path="/admin/airplanes" component={ Airplanes } />

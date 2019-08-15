@@ -24,15 +24,11 @@ class Search extends Component {
             };
             this.setState({flights: listFlights});
             console.log(this.state.flights);
-<<<<<<< HEAD
-            
-=======
 
         //   this.setState({
         //     flights: results.data,
         //     hasLoaded: true});
         //   setTimeout(fetchFlights, 4000);
->>>>>>> cdf5b87f97aeba453a5fcc76b590783a95200a84
           })
         };
 
@@ -106,7 +102,7 @@ class SearchResult extends Component {
                         </tr>
                     </tbody>
 
-                )}
+                    )}
                 </table>
 
 

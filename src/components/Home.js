@@ -6,7 +6,9 @@ const Home = () => {
         <div>
             <nav>
                 <ul>
-                    <li><Link to="/user">Sign up</Link></li>
+                    <li><Link to="/Signup">Sign up</Link></li>
+                    <li><Link to="/Signin">Sign in</Link></li>
+                    <li><Link to="/Signout">Sign out</Link></li>
                     <li><Link to="/search">Search flight</Link></li>
                     <li><Link to="/flights">All flights</Link></li>
                     
