@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import User from './User'
 import axios from 'axios';
 
-const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/flights.json';
+const SERVER_URL = 'https://crashtasticairlines.herokuapp.com/users.json';
 
 class Signin extends Component {
     constructor() {
@@ -32,14 +32,14 @@ class Signin extends Component {
                   user_id = userslist[i].id;
                   userDetail = userslist[i];
                   break;
-                } 
+                }
                 else {
                   console.log('please sign up');
                   let urlstr = window.location.href;
                 if (urlstr.includes("#")) {
                     urlstr = urlstr.split("#")[0] + "#/Signup"
                 }
-                
+
                 window.location.replace(urlstr);
                 //return (<SignUp />)
                 }
@@ -52,13 +52,13 @@ class Signin extends Component {
                 User.setName(userDetail.name);
                 User.setUserId(user_id);
                 User.setAdmin(userDetail.admin);
-                
+
                 //http://localhost:3000/#/home
                 let urlstr = window.location.href;
                 if (urlstr.includes("#")) {
                     urlstr = urlstr.split("#")[0] + "#/"
                 }
-                
+
                 window.location.replace(urlstr);
                 //return (<Home />)
             }
@@ -77,7 +77,7 @@ class Signin extends Component {
                     onChange={this.handleChange} defaultValue="" />
                 </label>
                 <br />
-                
+
                 <input type="submit" value="Sign in" />
                 </form>
             </div>

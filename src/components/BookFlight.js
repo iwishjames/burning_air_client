@@ -14,9 +14,7 @@ class BookFlight extends Component {
       hasLoaded: false,
 
       lastChecked: "",
-
-      // set the name of the user in _handleInput
-      name: "",
+      name: localStorage.name,
     };
     // use this URL to query using axios below
     const SERVER_URL_FLIGHT = 'https://crashtasticairlines.herokuapp.com/flights/' + this.props.match.params.id + '.json';
@@ -37,7 +35,6 @@ class BookFlight extends Component {
       // bind the handlecheck function so I can use this.
       this._handleCheck = this._handleCheck.bind(this);
       this.uncheckSeat = this.uncheckSeat.bind(this);
-      this._handleInput = this._handleInput.bind(this);
   }
 
 // TODO: when you click twice on a is_taken true element, it will block the first time, then not run any of this code, and check the box. This won't affect the database.
@@ -95,10 +92,6 @@ class BookFlight extends Component {
       })});
   }
 
-  // as you change the input field, update the state.name to reflect
-  _handleInput (event) {
-    this.setState({name: event.target.value});
-  }
 
 // TODO: when you press submit, save the data in the database, and take you to the users page.
 // Make association in database.
@@ -154,12 +147,9 @@ class BookFlight extends Component {
       return(
           <div>
               <h1>Crapping Airline</h1>
+              <h2>Name: {this.state.name}</h2>
               <h2>Flight { flight.flight_num }</h2>
               <p>{ flight.date } Flight { flight.flight_num } { flight.from } > { flight.to }</p>
-              <p>
-                Name:
-                <input type="text" onInput={ this._handleInput } />
-              </p>
               <p>Seats:</p>
               <div className="planeContainer">
               <div style={divGrid}>

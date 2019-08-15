@@ -26,11 +26,10 @@ class Flights extends Component {
       })
     };
     fetchFlights();
-    }
-
-
+  }
 
     saveFlight(flight_num, date, from, to, airplane_id) {
+      this.setState({hasLoaded: false});
       axios.post(SERVER_URL, {
         flight_num: flight_num,
         date: date,
@@ -38,8 +37,9 @@ class Flights extends Component {
         to: to,
         airplane_id: airplane_id,
       }).then((result) => {
-
-      this.setState({flights: [... this.state.flights, result.data]})
+      this.setState({
+        flights: [... this.state.flights, result.data],
+        hasLoaded: true})
       });
   }
 
@@ -50,8 +50,6 @@ class Flights extends Component {
   	     <h1>CrashTastic Airline</h1>
   	      <Flightsform onSubmit={ this.saveFlight } />
               <Gallery flights={ this.state.flights } />
-
-          {/*so pretty much the secret from te SecretForm child goes up to the parent and then gets pushed into the secrets Gallery child. */}
         </div>
       );
     }
