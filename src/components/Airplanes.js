@@ -11,22 +11,71 @@ class Airplanes extends Component {
     this.state = {
       // the airplanes are loaded using axios below
       airplanes: [],
+      name: "",
+      rows: "",
+      columns: "",
       // hasLoaded to check whether the API request has completed before rendering below
       hasLoaded: false
     };
+    this.saveAirplane = this.saveAirplane.bind(this);
+    this._handleChangeName = this._handleChangeName.bind(this);
+    this._handleChangeRows = this._handleChangeRows.bind(this);
+    this._handleChangeColumns = this._handleChangeColumns.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
 
-  // fetch the airplanes from the database every 4 seconds, save into state.airplanes to be used in render
-  const fetchAirplanes = () => {
-    axios.get(SERVER_URL).then((results) => {
-      // console.log(results.data[0]);
-      this.setState({
-        airplanes: results.data,
-        hasLoaded: true});
-      setTimeout(fetchAirplanes, 4000);
-      })
-    };
-    fetchAirplanes();
+    // fetch the airplanes from the database every 4 seconds, save into state.airplanes to be used in render
+    const fetchAirplanes = () => {
+      axios.get(SERVER_URL).then((results) => {
+        // console.log(results.data[0]);
+        this.setState({
+          airplanes: results.data,
+          hasLoaded: true});
+        setTimeout(fetchAirplanes, 4000);
+        })
+      };
+      fetchAirplanes();
+    }
+
+    saveAirplane(name, rows, columns) {
+      axios.post(SERVER_URL, {
+        name: name,
+        rows: rows,
+        columns: columns,
+      }).then((result) => {
+
+        this.setState({airplanes: [... this.state.airplanes,
+        result.data]})
+      });
+    }
+
+  _handleSubmit(event) {
+    event.preventDefault();
+    this.saveAirplane(this.state.name, this.state.rows, this.state.columns);
+    this.setState( {
+      name: "",
+      rows: "",
+      columns: "",
+    }); // Reset the form.
+
   }
+
+  _handleChangeName(event){
+    this.setState( { name: event.target.value } );
+  }
+
+  _handleChangeRows(event){
+    this.setState( { rows: event.target.value } );
+  }
+
+  _handleChangeColumns(event){
+    this.setState( { columns: event.target.value } );
+  }
+
+
+
+
+
+
 
   render() {
     const plane = this.state.airplanes;
@@ -38,22 +87,23 @@ class Airplanes extends Component {
       margin: "1px",
       textAlign: "center",
       padding: "8px",
-      cursor: "pointer"
+      cursor: "pointer",
     }
     const alphabet = "abcdefghijklmnopqrstuvwxyz".toUpperCase().split('');
 
       return(
           <div>
-              <h1>Creat a New Airplane</h1>
-              <form>
+              <h1>Create a New Airplane</h1>
+              <form onSubmit={this._handleSubmit}>
                 <label for="name">Name: </label>
-                <input type="text" id="name" placeholder="name" />
+                <input onChange={this._handleChangeName} value={this.state.name} type="text" name="name" placeholder="name" required/>
 
                 <label for="rows">Rows: </label>
-                <input type="number" id="rows" placeholder="5" />
+                <input onChange={this._handleChangeRows} value={this.state.rows} type="number" name="rows" placeholder="5" required/>
 
                 <label for="columns">Columns: </label>
-                <input type="number" id="columns" placeholder="43" />
+                <input onChange={this._handleChangeColumns}
+                value={this.state.columns} type="number" name="columns" placeholder="43" required/>
 
                 <input type="submit" value="Create" />
               </form>
@@ -64,9 +114,8 @@ class Airplanes extends Component {
                     gridTemplateColumns: "repeat(" + airplane.columns + ", auto)",
                     gridTemplateRows: "repeat(" + airplane.rows + ", auto)",
                     minWidth: "300px",
-                    maxWidth: "400px",
                     minHeight: "300px",
-                    maxHeight: "400px",
+
                   };
                   let seatArray = [];
                   let seats = airplane.rows * airplane.columns;
@@ -88,7 +137,7 @@ class Airplanes extends Component {
                   </div>
                 })}
           </div>
-      );
+    );
   }
 }
 
